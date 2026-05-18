@@ -26,7 +26,7 @@ wwwroot → Stores uploaded PDF files
 Data → DbContext for database
 
 Clone repository:
-git clone https://github.com/yourusername/Audiobook.git
+git clone https://github.com/Rachanakm1311/Audiobook.git
 
 Open project in Visual Studio
 Update connection string in appsettings.json
