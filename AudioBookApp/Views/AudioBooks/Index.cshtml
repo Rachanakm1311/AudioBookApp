@@ -1,0 +1,48 @@
+﻿@model IEnumerable<AudioBookApp.Models.AudioBook>
+
+<h1>Audiobooks</h1>
+
+<p>
+    <a asp-action="Create">
+        Upload New Book
+    </a>
+</p>
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Read</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+@foreach (var item in Model)
+{
+    <tr>
+
+        <td>@item.Title</td>
+
+        <td>@item.Author</td>
+
+        <td>
+
+            <a href="@Url.Action("ReadPdf",
+                     "AudioBooks",
+                     new { fileName = item.PdfFilePath })">
+
+                🎧 Listen Book
+
+            </a>
+
+        </td>
+
+    </tr>
+}
+
+    </tbody>
+
+</table>

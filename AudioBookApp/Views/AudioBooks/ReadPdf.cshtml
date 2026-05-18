@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "PDF Reader";
+}
+
+<h1>PDF Audiobook Reader</h1>
+
+<textarea id="pdfText"
+      rows="20"
+          cols="100">
+@Html.Raw(ViewBag.PdfText)
+</textarea>
+
+<br />
+<br />
+
+<button onclick="speakText()">
+    🔊 Read Aloud
+</button>
+
+<button onclick="stopSpeech()">
+    ⏹ Stop
+</button>
+
+<script>
+
+    function speakText()
+    {
+        var text =
+            document.getElementById("pdfText").value;
+
+        var speech =
+            new SpeechSynthesisUtterance(text);
+
+        speech.lang = "en-US";
+
+        speech.rate = 1;
+
+        window.speechSynthesis.speak(speech);
+    }
+
+    function stopSpeech()
+    {
+        window.speechSynthesis.cancel();
+    }
+
+</script>
